@@ -1,4 +1,5 @@
-from app.core.http_client import HttpClient
+# from app.core.http_client import HttpClient
+from datetime import datetime
 
 
 def fetch_clockify_data() -> dict:
@@ -11,8 +12,19 @@ def fetch_clockify_data() -> dict:
 
     # временные тестовые данные
     return {
-        "source": "clockify",
-        "status": "ok",
-        "message": "Clockify stub response",
-        "projects": ["Example project A", "Example project B"],
+        "workspace_id": 123,
+        "dateRangeStart": "2025-01-01T00:00:00Z",
+        "dateRangeEnd": datetime.now().isoformat() + "Z",
+        "entries": [
+            {
+                "project": "Example project A",
+                "task": "Coding",
+                "duration": 3600,
+            },
+            {
+                "project": "Example project B",
+                "task": "Review",
+                "duration": 1800,
+            },
+        ],
     }
